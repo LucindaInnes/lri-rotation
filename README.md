@@ -130,11 +130,6 @@ I use the coverage file created by genomeCoverageBed. The columns in the file ar
   5. fraction of bases on chromosome with depth equal to column 2.
 
   I calculate the genome coverage in 2 ways. First, the average number of reads that cover each base, and second in the percent of bases covered at all.
-  
-  $$ Average \ Coverage = \frac{\sum (Base*\#\ of\ Reads)}{Total\ Bases}$$
-  $$ Percent\ Coverage = (1 - \frac{Uncovered\ Bases}{Total\ Bases})*100\% $$
-
-  The code creates a bargraph of the values per 
 
 ```
 library(dplyr)
