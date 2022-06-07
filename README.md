@@ -106,13 +106,14 @@ minimap2 -ax map-ont $2 chopped.fastq | samtools view -bT $2 | samtools sort -o 
 samtools index output/aln.bam output/aln.bai
 genomeCoverageBed -ibam output/aln.bam > output/aln_coverage.txt
 ```
-I wrote another script which will run through a directory of input folders and run the script on each folder. You input 1) the directory of input folders and 2) the reference genome.
+I wrote another script which will run through a directory of input folders and run the script on each folder. You input 1) the directory of input folders, 2) the first script and 3) the reference genome.
+
 ```
 source ~/.bashrc
 
 cd $1
 
-for DIR in */; do sbatch ~/truncated_samples/gen_scripts/mapping.sh $DIR $2; done
+for DIR in */; do sbatch $2 $DIR $3; done
 ```
 
 ### Step 6: Analysis
