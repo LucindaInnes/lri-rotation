@@ -82,7 +82,7 @@ $ genomeCoverageBed -ibam input.bam > coverage.txt
 ```
 
 ### Step 5: Generalized Script
-Here I made a script that has 2 parameters, 1) a folder that contains the sequencing_summary file and the fastq_pass folder, and 2) the reference genome.
+Here I made a script (ONT_pipeline.sh) that has 2 parameters, 1) a folder that contains the sequencing_summary file and the fastq_pass folder, and 2) the reference genome.
 ```
 source ~/.bashrc
 
@@ -106,7 +106,7 @@ minimap2 -ax map-ont $2 chopped.fastq | samtools view -bT $2 | samtools sort -o 
 samtools index output/aln.bam output/aln.bai
 genomeCoverageBed -ibam output/aln.bam > output/aln_coverage.txt
 ```
-I wrote another script which will run through a directory of input folders and run the script on each folder. You input 1) the directory of input folders, 2) the first script and 3) the reference genome.
+I wrote another script (multi_ONT_pipeline.sh) which will run through a directory of input folders and run the script on each folder. You input 1) the directory of input folders, 2) the first script and 3) the reference genome.
 
 ```
 source ~/.bashrc
@@ -121,7 +121,7 @@ IGV:
 Use your BAM and BAI files to visualize coverege in the IGV software.
 
 R:
-I wrote an Rscript to make coverage graphs and report the average and % coverage across the entire genome (this only works for simplified human genome I created in step 3). I have not yet figured out how to make a generalized script for this. 
+I wrote an Rscript (summary_calc.R) to make coverage graphs and report the average and % coverage across the entire genome (this only works for simplified human genome I created in step 3). I have not yet figured out how to make a generalized script for this. 
 
 
 
